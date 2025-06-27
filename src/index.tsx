@@ -1,10 +1,32 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
-class App extends React.Component {
+interface AppProps {
+  color?: string;
+}
+
+class App extends React.Component<AppProps> {
+  state = { counter: 0 };
+
+  onIncrement = (): void => {
+    console.log("increment");
+    this.setState({ counter: this.state.counter + 1 });
+  };
+
+  onDecrement = (): void => {
+    console.log("Decrement");
+    this.setState({ counter: this.state.counter - 1 });
+  };
+
   render() {
-    return <div>Hi there</div>;
+    return (
+      <div>
+        <button onClick={this.onIncrement}>Increment</button>
+        <button onClick={this.onDecrement}>Decrement</button>
+        {this.state.counter}
+      </div>
+    );
   }
 }
 
-ReactDOM.render(<App />, document.querySelector('#root'));
+ReactDOM.render(<App />, document.getElementById("root"));
