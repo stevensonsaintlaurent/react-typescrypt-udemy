@@ -4,6 +4,7 @@ import ReactDOM from "react-dom";
 interface AppProps {
   color?: string;
 }
+console.log(interface);
 
 class App extends React.Component<AppProps> {
   state = { counter: 0 };
